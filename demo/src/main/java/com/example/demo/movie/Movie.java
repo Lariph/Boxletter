@@ -1,8 +1,9 @@
-package com.example.demo.models;
+package com.example.demo.movie;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,9 +18,6 @@ public class Movie {
 
     @Column(name = "name")
     private String name;
-
-    @Column(name = "like")
-    private Boolean like;
 
     @Column(name = "rate")
     private int rate;
@@ -44,14 +42,6 @@ public class Movie {
         this.name = name;
     }
 
-    public Boolean getLike() {
-        return like;
-    }
-
-    public void setLike(Boolean like) {
-        this.like = like;
-    }
-
     public int getRate() {
         return rate;
     }
@@ -69,20 +59,21 @@ public class Movie {
     }
 
 //constructors
-    public Movie(long id, String name, Boolean like, int rate, String review) {
+    public Movie(long id, String name, int rate, String review) {
+        super();
         this.id = id;
         this.name = name;
-        this.like = like;
         this.rate = rate;
         this.review = review;
     }
     public Movie() {
+        super();
     }
 
 //toString
     @Override
     public String toString() {
-        return "Movie [id=" + id + ", like=" + like + ", name=" + name + ", rate=" + rate + ", review=" + review + "]";
+        return "Movie [id=" + id + ", name=" + name + ", rate=" + rate + ", review=" + review + "]";
     }
 
 }
