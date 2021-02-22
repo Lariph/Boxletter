@@ -1,9 +1,15 @@
 <template>
-<v-container fluid>
+    <v-card width=500 class="mx-auto mt-5">
+        <v-container fluid>
+            <v-card-title class="subheading font-weight-bold justify-center">
+                Adicione um filme na sua lista
+              </v-card-title>
+              <v-divider></v-divider>
     <v-form
     ref="form"
     v-model="valid"
     lazy-validation
+    width="300"
   >
     <v-text-field
       v-model="form.name"
@@ -37,6 +43,7 @@
 
   </v-form>
   </v-container>
+  </v-card>
 </template>
 
 <script>
@@ -69,7 +76,9 @@ export default {
         this.axios.post('http://localhost:8085/inserir', this.form)
         .then((result)=> {
             console.log(result);
+            //this.$router.push('http://localhost:8080/');
         })
+        this.$router.push({name: 'Home'});
         e.preventDefault();
       }
       if(!this.form.name && !this.form.review && !this.form.rate) {
