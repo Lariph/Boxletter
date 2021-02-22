@@ -25,7 +25,7 @@
             <v-list-item-title>Home</v-list-item-title>
           </v-list-item>
 
-          <v-list-item>
+          <v-list-item href='http://localhost:8080/adicionar'>
             <v-list-item-icon>
               <v-icon>mdi-pencil-plus</v-icon>
             </v-list-item-icon>
