@@ -42,12 +42,24 @@ public class MovieController {
         return response;
     }
 
-    @GetMapping("/atualizar/{id}")
+    /*@GetMapping("/atualizar/{id}")
     public ResponseEntity<Movie> refresh(@PathVariable("id") Long id, @RequestBody Movie movie){
         Movie newmovie = movies.findById(id).orElse(null);
         newmovie.setName(movie.getName());
         newmovie.setRate(movie.getRate());
         newmovie.setReview(movie.getReview());
         return ResponseEntity.ok(this.movies.save(newmovie));
-    }
+    }*/
+
+    @GetMapping("/atualizar/{id}/{newname}/{newrate}/{newreview}")
+    public ResponseEntity<Movie> update(@PathVariable("id") Long id, 
+                            @PathVariable("newname") String newname, 
+                            @PathVariable("newrate") int newrate,
+                            @PathVariable("newreview") String newreview) {
+        Movie newmovie = movies.findById(id).orElse(null);
+        newmovie.setName(newname);
+        newmovie.setRate(newrate);
+        newmovie.setReview(newreview);
+        return ResponseEntity.ok(this.movies.save(newmovie));
+    }  
 }

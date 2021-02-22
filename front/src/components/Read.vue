@@ -14,7 +14,6 @@
             <v-card>
               <v-card-title class="subheading font-weight-bold">
                 {{ movie.name }}
-
                 <v-spacer></v-spacer>
                       <v-menu bottom left>
                         <template v-slot:activator="{ on, attrs }">
@@ -29,6 +28,9 @@
                         <v-list>
                           <v-list-item @click="deletar(movie.id)" href='http://localhost:8080/'>
                             <v-list-item-title>Remover</v-list-item-title>
+                          </v-list-item>
+                          <v-list-item :href="'http://localhost:8080/atualizar/' + movie.id">
+                            <v-list-item-title>Atualizar</v-list-item-title>
                           </v-list-item>
                         </v-list>
                       </v-menu>
@@ -65,12 +67,6 @@
     data: () => ({
       moviesPerPage: 4,
       list_movie: [],
-      items: [
-        { title: 'Click Me' },
-        { title: 'Click Me' },
-        { title: 'Click Me' },
-        { title: 'Click Me 2' },
-      ],
     }),
     created() {
         fetch("http://localhost:8085/listar")
