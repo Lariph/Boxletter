@@ -76,7 +76,6 @@ export default {
         this.axios.post('http://localhost:8085/inserir', this.form)
         .then((result)=> {
             console.log(result);
-            //this.$router.push('http://localhost:8080/');
         })
         this.$router.push({name: 'Home'});
         e.preventDefault();

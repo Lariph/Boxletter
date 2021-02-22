@@ -14,6 +14,24 @@
             <v-card>
               <v-card-title class="subheading font-weight-bold">
                 {{ movie.name }}
+
+                <v-spacer></v-spacer>
+                      <v-menu bottom left>
+                        <template v-slot:activator="{ on, attrs }">
+                          <v-btn
+                            icon
+                            v-bind="attrs"
+                            v-on="on"
+                          >
+                          <v-icon>mdi-dots-vertical</v-icon>
+                          </v-btn>
+                        </template>
+                        <v-list>
+                          <v-list-item @click="deletar(movie.id)" href='http://localhost:8080/'>
+                            <v-list-item-title>Remover</v-list-item-title>
+                          </v-list-item>
+                        </v-list>
+                      </v-menu>
               </v-card-title>
 
               <v-divider></v-divider>
@@ -46,7 +64,13 @@
   export default {
     data: () => ({
       moviesPerPage: 4,
-      list_movie: []
+      list_movie: [],
+      items: [
+        { title: 'Click Me' },
+        { title: 'Click Me' },
+        { title: 'Click Me' },
+        { title: 'Click Me 2' },
+      ],
     }),
     created() {
         fetch("http://localhost:8085/listar")
@@ -58,6 +82,15 @@
                 console.log("aqui")
                 console.log(data);
             })    
+    },
+    methods: {
+    deletar(id) {
+      this.axios.get('http://localhost:8085/remover/' + id)
+        .then((result)=> {
+            console.log(result);
+        })
+        console.log(this.id);
     }
+  }
   }
 </script>
