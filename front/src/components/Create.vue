@@ -18,12 +18,12 @@
       required
     ></v-text-field>
 
-    <v-text-field
+    <v-textarea
       v-model="form.review"
       :rules="reviewRules"
       label="Review"
       required
-    ></v-text-field>
+    ></v-textarea>
 
     <v-text-field
       v-model="form.rate"

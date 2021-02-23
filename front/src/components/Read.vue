@@ -40,9 +40,9 @@
 
               <v-list dense>
                 <v-list-item>
-                  <v-list-item-content>Classificação:</v-list-item-content>
-                  <v-list-item-content class="align-end">
-                    {{ movie.rate }}
+                  <v-list-item-content  
+                  v-for="n in movie.rate" :key="n">
+                    <v-icon>mdi-star-outline</v-icon>
                   </v-list-item-content>
                 </v-list-item>
 
