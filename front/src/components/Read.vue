@@ -40,10 +40,9 @@
 
               <v-list dense>
                 <v-list-item>
-                  <v-list-item-content  
-                  v-for="n in movie.rate" :key="n">
-                    <v-icon>mdi-star-outline</v-icon>
-                  </v-list-item-content>
+                  <v-rating v-model="movie.rate" 
+                  background-color="orange lighten-3" 
+                  color="orange" ></v-rating>
                 </v-list-item>
 
                 <v-list-item>
